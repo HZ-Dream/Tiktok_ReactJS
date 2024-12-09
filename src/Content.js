@@ -1,15 +1,12 @@
-import { useEffect } from "react"
+import {memo} from "react"
 
-function Content() {
-
-    useEffect (() => {
-        
-    })
+function Content({onIncrease}) {    
     return (
-        <div>
-            <h1>Hello anh em Man City và SGP</h1>
-        </div>
+        <>
+            <h2>Hello anh em</h2>
+            <button onClick={onIncrease}>Click me!</button>
+        </>
     )
 }
 
-export default Content
+export default memo(Content)
