@@ -1,7 +1,11 @@
-import TodoApp from "./Todo/Index";
 
 function App() {
-    return <TodoApp />
+    return (
+        <div style={{ padding: 20 }}>
+
+        </div>
+    );
 }
 
-export default App
+export default App;
+
