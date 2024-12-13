@@ -1,7 +1,7 @@
 
 function App() {
     return (
-        <div style={{ padding: 20 }}>
+        <div className="app">
 
         </div>
     );
