@@ -1,4 +1,4 @@
-import Button from "~/components/Button";
+import Button from '~/components/Button';
 
 function App() {
     return (
@@ -9,4 +9,3 @@ function App() {
 }
 
 export default App;
-
