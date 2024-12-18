@@ -28,8 +28,8 @@ function AccountItem() {
     ];
     return (
         <>
-            {accounts.map((account) => (
-                <div className={cx('wrapper')}>
+            {accounts.map((account, index) => (
+                <div className={cx('wrapper')} key={index}>
                     <img className={cx('avatar')} src={account.src} alt={account.alt} />
                     <div className={cx('info')}>
                         <h4 className={cx('name')}>
