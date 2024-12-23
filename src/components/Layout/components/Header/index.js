@@ -4,14 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleQuestion,
     faCircleXmark,
-    faCloudUpload,
     faCoins,
     faEarthAsia,
     faEllipsisVertical,
     faGear,
     faKeyboard,
     faMagnifyingGlass,
-    faMessage,
     faSignOut,
     faSpinner,
     faUser,
@@ -26,6 +24,8 @@ import styles from './Header.module.scss';
 import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
+import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
@@ -167,11 +167,14 @@ function Header() {
                         <>
                             <Tippy delay={[0, 200]} content="Upload Video" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                    <UploadIcon />
                                 </button>
                             </Tippy>
                             <button className={cx('action-btn')}>
-                                <FontAwesomeIcon icon={faMessage} />
+                                <MessageIcon />
+                            </button>
+                            <button className={cx('action-btn')}>
+                                <InboxIcon />
                             </button>
                         </>
                     ) : (
@@ -182,7 +185,7 @@ function Header() {
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 src="https://scontent.fsgn16-1.fna.fbcdn.net/v/t39.30808-6/448020594_986596983474571_4865932017320470926_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=Vv3p2GVFb_YQ7kNvgFruFxW&_nc_zt=23&_nc_ht=scontent.fsgn16-1.fna&_nc_gid=AZvG_rYyS1DsNToThl-ECGi&oh=00_AYCX_XLMiHEUID8uhUaR8_Z4jD_LjDLF5bCmdMY7A0uLew&oe=67686079"
                                 className={cx('user-avatar')}
                                 alt="Avatar"
