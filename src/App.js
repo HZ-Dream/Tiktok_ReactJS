@@ -6,11 +6,10 @@ import { DefaultLayout } from '~/components/Layout';
 function App() {
     return (
         <Router>
-            <div className="app">
+            <div className="App">
                 <Routes>
                     {publicRoutes.map((route, index) => {
                         const Page = route.component;
-
                         let Layout = DefaultLayout;
 
                         if (route.layout) {
@@ -18,6 +17,7 @@ function App() {
                         } else if (route.layout === null) {
                             Layout = Fragment;
                         }
+
                         return (
                             <Route
                                 key={index}
