@@ -1,25 +1,26 @@
 import classNames from 'classnames/bind';
-import styles from './SuggestedAccounts.module.scss';
+import styles from './ListedAccounts.module.scss';
 import PropTypes from 'prop-types';
 import AccountItem from './AccountItem';
 
 const cx = classNames.bind(styles);
 
-function SuggestedAccounts({ label }) {
+function ListedAccounts({ label, preview = true }) {
     return (
         <div className={cx('wrapper')}>
             <p className={cx('label')}>{label}</p>
-            <AccountItem />
-            <AccountItem />
-            <AccountItem />
+            <AccountItem preview={preview} />
+            <AccountItem preview={preview} />
+            <AccountItem preview={preview} />
 
             <p className={cx('more-btn')}>See all</p>
         </div>
     );
 }
 
-SuggestedAccounts.propTypes = {
+ListedAccounts.propTypes = {
     label: PropTypes.string.isRequired,
+    preview: PropTypes.bool,
 };
 
-export default SuggestedAccounts;
+export default ListedAccounts;
