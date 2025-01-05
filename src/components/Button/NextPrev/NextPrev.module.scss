@@ -1,0 +1,29 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+}
+
+.btn,
+.disabled {
+    height: 50px;
+    width: 50px;
+    border-radius: 999px;
+    background-color: #0000000d;
+    margin: 5px 20px;
+    line-height: 0.2rem;
+    min-width: 0;
+    margin-left: 0 !important;
+}
+
+.btn:hover {
+    background-color: #0000001f;
+}
+
+.disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+}

@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './ListedAccounts.module.scss';
 import PropTypes from 'prop-types';
-import AccountItem from './AccountItem';
+import ListedAccountItem from './ListedAccountItem';
 
 const cx = classNames.bind(styles);
 
@@ -9,9 +9,9 @@ function ListedAccounts({ label, preview = true }) {
     return (
         <div className={cx('wrapper')}>
             <p className={cx('label')}>{label}</p>
-            <AccountItem preview={preview} />
-            <AccountItem preview={preview} />
-            <AccountItem preview={preview} />
+            <ListedAccountItem preview={preview} />
+            <ListedAccountItem preview={preview} />
+            <ListedAccountItem preview={preview} />
 
             <p className={cx('more-btn')}>See all</p>
         </div>
