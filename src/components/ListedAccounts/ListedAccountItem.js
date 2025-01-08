@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './ListedAccounts.module.scss';
 import AccountPreview from './AccountPreview';
+import images from '~/assets/images';
 
 const cx = classNames.bind(styles);
 
@@ -36,11 +37,7 @@ function ListedAccountItem({ preview }) {
                 appendTo={document.body}
             >
                 <div className={cx('account-item')}>
-                    <img
-                        className={cx('avatar')}
-                        src="https://mcdn.coolmate.me/image/October2021/meme-cheems-1.png"
-                        alt="Avatar"
-                    />
+                    <img className={cx('avatar')} src={images.avatarImage} alt="Avatar" />
                     <div className={cx('item-info')}>
                         <p className={cx('nickname')}>
                             <strong>ngochoaidream</strong>

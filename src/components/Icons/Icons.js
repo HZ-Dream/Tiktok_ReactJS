@@ -353,8 +353,26 @@ export const FavoriteIcon = ({ width = '2.4rem', height = '2.4rem', className })
 );
 
 export const FavoriteActiveIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
-    <svg className={className} xmlns="http://www.w3.org/2000/svg" width={width} height={height} fill="currentColor">
-        <use xlinkHref="#collected-f29ef602"></use>
+    <svg
+        className={className}
+        fill="#face15"
+        fontSize="14px"
+        xmlns="http://www.w3.org/2000/svg"
+        width={width}
+        height={height}
+        viewBox="0 0 22 22"
+        id="uncollect-8a52664d"
+    >
+        {' '}
+        <path
+            fill="#face15"
+            d="M4 4.5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v15.13a1 1 0 0 1-1.555.831l-6.167-4.12a.5.5 0 0 0-.556 0l-6.167 4.12A1 1 0 0 1 4 19.63V4.5Z"
+        ></path>{' '}
+        <path
+            fill="#face15"
+            fillOpacity=".03"
+            d="M4.032 4.144A1.894 1.894 0 0 0 4 4.5v15.13a1 1 0 0 0 1.555.831l6.167-4.12a.5.5 0 0 1 .41-.066l-.427-.198a1.489 1.489 0 0 0-1.377.063c-.581.339-1.45.85-2.25 1.339-.59.359-1.427.695-2.187.962-.929.325-1.86-.387-1.86-1.37V4.143Zm8.251 12.202 6.162 4.115A1 1 0 0 0 20 19.63V4.5a2 2 0 0 0-1.123-1.798c.21.254.334.58.33.936a117.008 117.008 0 0 1-.896 13.408c-.124.99-1.17 1.553-2.076 1.133l-3.952-1.833Z"
+        ></path>{' '}
     </svg>
 );
 
@@ -388,6 +406,36 @@ export const ShareIcon = ({ width = '2.4rem', height = '2.4rem', className }) =>
             d="M10.937 6.23v7.297s-6.683-.942-8.777 2.246C.146 18.839.331 12.309 3.363 9.057c3.033-3.252 7.574-2.827 7.574-2.827Z"
             clipRule="evenodd"
             opacity=".09"
+        ></path>
+    </svg>
+);
+
+export const FollowIcon = ({ width = '1.5rem', height = '1.5rem', className }) => (
+    <svg
+        className={className}
+        fill="currentColor"
+        viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
+        width={width}
+        height={height}
+    >
+        <path d="M26 7a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v15H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h15v15a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V26h15a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H26V7Z"></path>
+    </svg>
+);
+
+export const FollowCheckIcon = ({ width = '1.5rem', height = '1.5rem', className }) => (
+    <svg
+        className={className}
+        fill="currentColor"
+        viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
+        width={width}
+        height={height}
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M43 6.08c.7.45 1.06.67 1.25.98.16.27.23.59.2.9-.03.36-.26.72-.7 1.43L23.06 42.14a3.5 3.5 0 0 1-5.63.39L4.89 27.62c-.54-.64-.81-.96-.9-1.32a1.5 1.5 0 0 1 .09-.92c.14-.33.46-.6 1.1-1.14l1.69-1.42c.64-.54.96-.81 1.31-.9.3-.06.63-.04.92.09.34.14.6.46 1.15 1.1l9.46 11.25 18.11-28.7c.45-.72.68-1.07.99-1.26.27-.16.59-.23.9-.2.36.03.71.25 1.43.7L43 6.08Z"
         ></path>
     </svg>
 );

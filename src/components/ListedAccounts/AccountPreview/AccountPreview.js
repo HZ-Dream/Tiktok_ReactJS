@@ -4,6 +4,7 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 import Button from '~/components/Button';
 import styles from './AccountPreview.module.scss';
+import images from '~/assets/images';
 
 const cx = classNames.bind(styles);
 
@@ -11,11 +12,7 @@ function AccountPreview() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('header')}>
-                <img
-                    className={cx('avatar')}
-                    src="https://mcdn.coolmate.me/image/October2021/meme-cheems-1.png"
-                    alt="Avatar"
-                />
+                <img className={cx('avatar')} src={images.avatarImage} alt="Avatar" />
                 <Button className={cx('follow-btn')} primary>
                     Follow
                 </Button>

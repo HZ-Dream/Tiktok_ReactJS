@@ -5,10 +5,10 @@ import VideoSidebar from './VideoSidebar';
 const cx = classNames.bind(styles);
 
 const data = {
-    likes: 12,
-    chats: 56,
-    favorites: 28,
-    shares: 4,
+    likes: '12M',
+    chats: '5.3K',
+    favorites: '411K',
+    shares: '24.5K',
 };
 
 function VideoItem({ url }) {

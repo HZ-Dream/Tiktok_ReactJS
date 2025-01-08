@@ -157,11 +157,7 @@ function Header() {
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <Image
-                                src="https://mcdn.coolmate.me/image/October2021/meme-cheems-1.png"
-                                className={cx('user-avatar')}
-                                alt="Avatar"
-                            />
+                            <Image src={images.avatarImage} className={cx('user-avatar')} alt="Avatar" />
                         ) : (
                             <button className={cx('more-btn')}>
                                 <FontAwesomeIcon icon={faEllipsisVertical} />
