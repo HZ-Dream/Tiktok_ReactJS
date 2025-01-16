@@ -39,6 +39,10 @@
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .btn-follow {
@@ -100,4 +104,66 @@
     line-height: 16px;
     color: rgba(22, 24, 35, 0.75);
     font-weight: 700;
+}
+
+// Controls CSS
+.controls {
+    position: absolute;
+}
+
+.controls-video {
+    position: absolute;
+    display: flex;
+    top: 430px;
+    width: 312px;
+    justify-content: space-between;
+    padding: 0 12px;
+    line-height: 1rem;
+}
+
+.play-pause {
+    cursor: pointer;
+}
+
+.volume {
+    cursor: pointer;
+
+    &:hover {
+        .change-volume {
+            display: block;
+        }
+    }
+}
+
+.change-volume {
+    display: none;
+    cursor: initial;
+    position: absolute;
+    width: 17px;
+    height: 60px;
+    bottom: 26px;
+    right: 15px;
+    background: rgba(22, 24, 35, 0.34);
+    border-radius: 32px;
+
+    input {
+        -webkit-appearance: none;
+        transform: rotate(-90deg);
+        height: 5px;
+        width: 46px;
+        position: absolute;
+        right: -14px;
+        bottom: 28px;
+        border-radius: 4px;
+        caret-color: transparent;
+
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 12px;
+            height: 12px;
+            background-color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    }
 }

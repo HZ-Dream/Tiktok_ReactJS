@@ -63,6 +63,10 @@ a {
     text-decoration: none;
 }
 
+video {
+    pointer-events: none;
+}
+
 // Fonts emmbeded
 @font-face {
     font-family: ProximaNova;
