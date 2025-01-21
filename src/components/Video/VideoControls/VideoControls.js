@@ -23,6 +23,22 @@ function VideoControls() {
                         <VolumeIcon />
                     </div>
                 </div>
+                <div className={cx('progress-time')}>
+                    <div className={cx('time-video')}>
+                        <div className={cx('control-time')}>
+                            <input
+                                id={styles.progress}
+                                className={cx('range-time')}
+                                type="range"
+                                step="0.1"
+                                min="0"
+                                max="100"
+                            />
+                            <label></label>
+                        </div>
+                        <div className={cx('timeon')}>0:32/3:43</div>
+                    </div>
+                </div>
             </div>
             <div className={cx('time')}></div>
         </div>
