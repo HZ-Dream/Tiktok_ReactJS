@@ -1,26 +1,34 @@
-import { useState } from 'react';
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
+
 import styles from '../Video.module.scss';
 import { VolumeMuteIcon, PLayIcon, VolumeIcon, PauseIcon } from '~/components/Icons';
 
 const cx = classNames.bind(styles);
 
-function VideoControls() {
-    const [isPlaying, setIsPlaying] = useState(false);
-
-    const handlePlayPause = () => setIsPlaying(!isPlaying);
+function VideoControls({ data }) {
     return (
         <div className={cx('controls')}>
             <div className={cx('controls-video')}>
-                <div className={cx('play-pause')} onClick={handlePlayPause}>
-                    {isPlaying ? <PLayIcon /> : <PauseIcon />}
+                <div className={cx('play-pause')} onClick={data.onPlayPause}>
+                    {data.isPlaying ? <PauseIcon /> : <PLayIcon />}
                 </div>
                 <div className={cx('volume')}>
                     <div className={cx('change-volume')}>
-                        <input className={cx('range')} type="range" min="0" max="1" step="0.1" />
+                        <input
+                            className={cx('range')}
+                            type="range"
+                            min="0"
+                            max="1"
+                            step="0.1"
+                            value={data.volume}
+                            onChange={(e) => {
+                                data.handleAdjustVolume(e);
+                            }}
+                        />
                     </div>
-                    <div className={cx('sound-mute')}>
-                        <VolumeIcon />
+                    <div className={cx('sound-mute')} onClick={data.toggleMuted}>
+                        {data.isMute ? <VolumeMuteIcon /> : <VolumeIcon />}
                     </div>
                 </div>
                 <div className={cx('progress-time')}>
@@ -44,5 +52,9 @@ function VideoControls() {
         </div>
     );
 }
+
+VideoControls.propTypes = {
+    data: PropTypes.object.isRequired,
+};
 
 export default VideoControls;

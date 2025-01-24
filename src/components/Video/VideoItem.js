@@ -1,8 +1,11 @@
+import { useContext, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames/bind';
+
 import styles from './Video.module.scss';
 import VideoSidebar from './VideoSidebar';
 import VideoControls from './VideoControls';
 import VideoOptions from './VideoOptions';
+import { VideoContext } from './VolumeVideo';
 
 const cx = classNames.bind(styles);
 
@@ -14,13 +17,36 @@ const data = {
 };
 
 function VideoItem({ url }) {
+    const videoRef = useRef();
+    const [isPlaying, setIsPlaying] = useState(true);
+    const contextVideo = useContext(VideoContext);
+
+    useEffect(() => {
+        if (contextVideo.isMute) {
+            videoRef.current.volume = 0;
+        } else {
+            videoRef.current.volume = contextVideo.volume;
+        }
+    }, [contextVideo.isMute, contextVideo.volume]);
+
+    const handlePlayPause = () => {
+        if (isPlaying) {
+            videoRef.current.pause();
+        } else {
+            videoRef.current.play();
+        }
+        setIsPlaying(!isPlaying);
+    };
+
+    const value = { isPlaying, onPlayPause: handlePlayPause, ...contextVideo };
+
     return (
         <div className={cx('wrapper')}>
             <VideoOptions />
-            <video className={cx('video')} autoPlay muted loop>
+            <video ref={videoRef} className={cx('video')} autoPlay loop>
                 <source src={url} type="video/mp4" />
             </video>
-            <VideoControls />
+            <VideoControls data={value} />
             <VideoSidebar data={data} />
         </div>
     );

@@ -462,7 +462,7 @@ export const PauseIcon = ({ width = '2.4rem', height = '2.4rem', className }) =>
     </svg>
 );
 
-export const VolumeIcon = ({ width = '2.6rem', height = '2.6rem', className }) => (
+export const VolumeIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
     <svg
         className={className}
         width={width}
