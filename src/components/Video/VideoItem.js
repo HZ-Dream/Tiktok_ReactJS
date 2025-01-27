@@ -18,8 +18,15 @@ const data = {
 
 function VideoItem({ url }) {
     const videoRef = useRef();
-    const [isPlaying, setIsPlaying] = useState(true);
     const contextVideo = useContext(VideoContext);
+
+    const [isPlaying, setIsPlaying] = useState(true);
+    const [currentTime, setCurrentTime] = useState(0);
+    const [secondsLoad, setSecondsLoad] = useState(0);
+    const [minutesLoad, setMinutesLoad] = useState(0);
+    const [secondsTotal, setSecondsTotal] = useState(0);
+    const [minutesTotal, setMinutesTotal] = useState(0);
+    const [progress, setProgress] = useState(0);
 
     useEffect(() => {
         if (contextVideo.isMute) {
@@ -38,12 +45,50 @@ function VideoItem({ url }) {
         setIsPlaying(!isPlaying);
     };
 
-    const value = { isPlaying, onPlayPause: handlePlayPause, ...contextVideo };
+    const handleTimeUpdate = (e) => {
+        const video = e.target;
+        const percent = (video.currentTime / video.duration) * 100;
+        setCurrentTime(percent);
+        setProgress(video.currentTime / video.duration);
+
+        const timeLoad = videoRef.current.currentTime;
+        const minutesLoad = Math.floor(timeLoad / 60);
+        setMinutesLoad(minutesLoad);
+        const secondsLoad = Math.floor(timeLoad % 60);
+        setSecondsLoad(secondsLoad);
+
+        const totalTime = videoRef.current.duration;
+        const minutesTotal = Math.floor(totalTime / 60);
+        setMinutesTotal(minutesTotal);
+        const secondsTotal = Math.floor(totalTime % 60);
+        setSecondsTotal(secondsTotal);
+    };
+
+    const handleSetTime = (e) => {
+        const percent = parseFloat(e.target.value);
+        const time = (videoRef.current.duration / 100) * percent;
+        videoRef.current.currentTime = time;
+        setCurrentTime(percent);
+        setProgress(videoRef.current.currentTime / videoRef.current.duration);
+    };
+
+    const value = {
+        isPlaying,
+        currentTime,
+        secondsLoad,
+        minutesLoad,
+        secondsTotal,
+        minutesTotal,
+        progress,
+        onPlayPause: handlePlayPause,
+        handleSetTime: handleSetTime,
+        ...contextVideo,
+    };
 
     return (
         <div className={cx('wrapper')}>
             <VideoOptions />
-            <video ref={videoRef} className={cx('video')} autoPlay loop>
+            <video onTimeUpdate={handleTimeUpdate} ref={videoRef} className={cx('video')} autoPlay loop>
                 <source src={url} type="video/mp4" />
             </video>
             <VideoControls data={value} />

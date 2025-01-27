@@ -41,10 +41,17 @@ function VideoControls({ data }) {
                                 step="0.1"
                                 min="0"
                                 max="100"
+                                onChange={data.handleSetTime}
                             />
-                            <label></label>
+                            <label
+                                htmlFor={styles.progress}
+                                className={cx('range-progess')}
+                                style={{ transform: `scaleX(${data.progress}) translateY(-50%)` }}
+                            ></label>
                         </div>
-                        <div className={cx('timeon')}>0:32/3:43</div>
+                        <div className={cx('timeon')}>{`${data.minutesLoad}:${data.secondsLoad < 10 ? '0' : ''}${
+                            data.secondsLoad
+                        }/${data.minutesTotal}:${data.secondsTotal < 10 ? '0' : ''}${data.secondsTotal}`}</div>
                     </div>
                 </div>
             </div>
