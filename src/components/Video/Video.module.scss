@@ -1,8 +1,8 @@
 .wrapper {
     display: flex;
     width: 600px;
-    height: 480px;
-    padding: 0 120px;
+    height: 575px;
+    padding: 32px 120px 60px;
 
     &:hover {
         .play-pause,
@@ -242,7 +242,7 @@
 // VideoOptions CSS
 .video-options {
     position: absolute;
-    top: 90px;
+    top: 100px;
     margin-left: 275px;
     color: var(--white);
     font-weight: bold;
