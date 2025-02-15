@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import classNames from 'classnames/bind';
 
 import * as getListVideoService from '~/services/getVideoService';
@@ -24,15 +24,12 @@ function Home() {
 
     return (
         <div className={cx('wrapper')}>
-            {/* {videoData.map((item, index) => (
-                <div key={item.id}>
-                    <VideoItem url={item.file_url} />
-                    <NextPrev />
-                </div>
-            ))} */}
-            {Object.keys(videos).map((key) => (
-                <VideoItem url={videos[key]} />
+            {videoData.map((item, index) => (
+                <VideoItem key={index} url={item.file_url} />
             ))}
+            {/* {Object.keys(videos).map((key, index) => (
+                <VideoItem key={index} url={videos[key]} />
+            ))} */}
             <NextPrev />
         </div>
     );

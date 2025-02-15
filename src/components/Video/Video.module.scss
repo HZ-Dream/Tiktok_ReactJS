@@ -1,5 +1,6 @@
 .wrapper {
     display: flex;
+    position: relative;
     width: 600px;
     height: 575px;
     padding: 32px 120px 60px;
@@ -13,7 +14,7 @@
 }
 
 .video {
-    width: 100%;
+    width: 86%;
     height: 100%;
     object-fit: cover;
     border-radius: 12px;
@@ -242,7 +243,7 @@
 // VideoOptions CSS
 .video-options {
     position: absolute;
-    top: 100px;
+    top: 40px;
     margin-left: 275px;
     color: var(--white);
     font-weight: bold;

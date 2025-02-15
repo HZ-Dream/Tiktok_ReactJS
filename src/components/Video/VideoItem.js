@@ -28,6 +28,40 @@ function VideoItem({ url }) {
     const [minutesTotal, setMinutesTotal] = useState(0);
     const [progress, setProgress] = useState(0);
 
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                } else {
+                    setIsVisible(false);
+                }
+            },
+            { threshold: 0.5 }, // Only 50% video is visible
+        );
+
+        if (videoRef.current) {
+            observer.observe(videoRef.current);
+        }
+
+        return () => {
+            if (videoRef.current) {
+                observer.unobserve(videoRef.current);
+            }
+        };
+    }, []);
+
+    useEffect(() => {
+        if (isVisible) {
+            videoRef.current.play();
+        } else {
+            videoRef.current.pause();
+            videoRef.current.currentTime = 0;
+        }
+    }, [isVisible]);
+
     useEffect(() => {
         if (contextVideo.isMute) {
             videoRef.current.volume = 0;
@@ -88,7 +122,7 @@ function VideoItem({ url }) {
     return (
         <div className={cx('wrapper')}>
             <VideoOptions />
-            <video onTimeUpdate={handleTimeUpdate} ref={videoRef} className={cx('video')} autoPlay loop>
+            <video onTimeUpdate={handleTimeUpdate} ref={videoRef} className={cx('video')} loop>
                 <source src={url} type="video/mp4" />
             </video>
             <VideoControls data={value} />

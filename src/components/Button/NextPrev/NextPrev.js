@@ -37,10 +37,10 @@ function NextPrev() {
 
     return (
         <div className={cx('wrapper')}>
-            <Button className={cx('btn', scrollVideo === 0 ? 'disabled' : '')} onClick={() => handleScroll(-580)}>
+            <Button className={cx('btn', scrollVideo === 0 ? 'disabled' : '')} onClick={() => handleScroll(-575)}>
                 <PrevIcon />
             </Button>
-            <Button className={cx('btn')} onClick={() => handleScroll(580)}>
+            <Button className={cx('btn')} onClick={() => handleScroll(575)}>
                 <NextIcon />
             </Button>
         </div>
